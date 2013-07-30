@@ -43,7 +43,7 @@ module OrientDB
     end
 
     def rid
-      identity
+      identity.to_s
     end
 
     def inspect
