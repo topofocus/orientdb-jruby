@@ -24,7 +24,7 @@ require "orientdb-graphdb-1.6.4"
 
 require "pipes-2.5.0-20131024.235509-5"
 require "gremlin-java-2.5.0-20140112.160704-7"
-require "gremlin-groovy-20140112.160704-7"
+require "gremlin-groovy-2.5.0-20140112.160755-7"
 
 require 'orientdb/version'
 require 'orientdb/ext'
