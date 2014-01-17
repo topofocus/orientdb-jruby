@@ -10,7 +10,7 @@ $: << File.join(OrientDB::GEM_PATH, 'jars')
 require 'java'
 require "commons-configuration-1.6"
 
-require "blueprints-core-SNAPSHOT"
+require "blueprints-core-2.5.0-SNAPSHOT"
 
 require "orient-commons-1.7_SNAPSHOT"
 require "orientdb-core-1.7_SNAPSHOT"
