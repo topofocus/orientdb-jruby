@@ -8,22 +8,22 @@ $: << OrientDB::GEM_PATH
 $: << File.join(OrientDB::GEM_PATH, 'jars')
 
 require 'java'
-require "commons-configuration-1.9"
+require "commons-configuration-1.6"
 
-require "blueprints-core-2.5.0-SNAPSHOT"
-require "blueprints-orient-graph-2.5.0-SNAPSHOT_ME"
+require "blueprints-core-2.5.0-20140115.140346-27"
 
-require "orient-commons-1.6.2"
-require "orientdb-core-1.6.2"
+require "orient-commons-1.6.4"
+require "orientdb-core-1.6.4"
 require "jna-4.0.0"
-require "orientdb-nativeos-1.6.2"
-require "orientdb-client-1.6.2"
-require "orientdb-enterprise-1.6.2"
-require "orientdb-server-1.6.2.jar"
-require "orientdb-tools-1.6.2.jar"
+require "orientdb-nativeos-1.6.4"
+require "orientdb-client-1.6.4"
+require "orientdb-enterprise-1.6.4"
+require "orientdb-server-1.6.4"
+require "orientdb-tools-1.6.4"
+require "orientdb-graphdb-1.6.4"
 
-require "pipes-2.5.0-SNAPSHOT"
-require "gremlin-java-2.5.0-SNAPSHOT"
+require "pipes-2.5.0-20131024.235509-5"
+require "gremlin-java-2.5.0-20140112.160704-7"
 
 require 'orientdb/version'
 require 'orientdb/ext'
