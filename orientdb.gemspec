@@ -41,7 +41,7 @@ Gem::Specification.new do |s|
     "lib/jars/orientdb-tools-1.6.4.jar",
     "lib/jars/pipes-2.5.0-20131024.235509-5.jar",
     "lib/jars/gremlin-java-2.5.0-20140112.160704-7.jar",
-    "lib/jars/gremlin-groovy-20140112.160704-7.jar",
+    "lib/jars/gremlin-groovy-2.5.0-20140112.160755-7.jar",
     "lib/orientdb.rb",
     "lib/orientdb/constants.rb",
     "lib/orientdb/database.rb",
