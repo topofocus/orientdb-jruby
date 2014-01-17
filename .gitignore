@@ -12,6 +12,8 @@ tmtags
 
 ## VIM
 *.swp
+*.swo
+*.swn
 
 ## IDEA
 .idea/*
