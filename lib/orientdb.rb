@@ -12,8 +12,8 @@ require "commons-configuration-1.6"
 
 require "blueprints-core-2.5.0-SNAPSHOT"
 
-require "orient-commons-1.7_SNAPSHOT"
-require "orientdb-core-1.7_SNAPSHOT"
+require "orient-commons-1.7-SNAPSHOT"
+require "orientdb-core-1.7-SNAPSHOT"
 require "jna-4.0.0"
 require "orientdb-nativeos-1.7-SNAPSHOT"
 require "orientdb-client-1.7-SNAPSHOT"
@@ -25,6 +25,7 @@ require "orientdb-graphdb-1.7-SNAPSHOT"
 require "pipes-2.5.0-20131024.235509-5"
 require "gremlin-java-2.5.0-20140112.160704-7"
 require "gremlin-groovy-2.5.0-20140112.160755-7"
+require 'concurrentlinkedhashmap-lru-1.4'
 
 require 'orientdb/version'
 require 'orientdb/ext'
