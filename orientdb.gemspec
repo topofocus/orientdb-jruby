@@ -43,6 +43,7 @@ Gem::Specification.new do |s|
     "lib/jars/gremlin-java-2.5.0-20140112.160704-7.jar",
     "lib/jars/gremlin-groovy-2.5.0-20140112.160755-7.jar",
     "lib/jars/concurrentlinkedhashmap-lru-1.4.jar",
+    "lib/jars/snappy-0.3.jar",
     "lib/orientdb.rb",
     "lib/orientdb/constants.rb",
     "lib/orientdb/database.rb",
