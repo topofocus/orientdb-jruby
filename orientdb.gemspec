@@ -36,7 +36,7 @@ Gem::Specification.new do |s|
     "lib/jars/groovy-1.8.9.jar",
     "lib/jars/jansi-1.5.jar",
     "lib/jars/javassist.jar",
-    "lib/jars/jline-0.9.94.jar",
+    # "lib/jars/jline-0.9.94.jar",
     "lib/jars/jna-4.0.0.jar",
     "lib/jars/jna-platform-4.0.0.jar",
     "lib/jars/junit-4.11.jar",
