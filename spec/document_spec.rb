@@ -32,6 +32,9 @@ describe "OrientDB" do
 
   describe "Document" do
 
+    after :all do
+      drop_classes
+    end
     before :all do
       create_classes
 

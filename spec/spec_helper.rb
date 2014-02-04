@@ -56,6 +56,17 @@ unless defined?(SPEC_HELPER_LOADED)
                                           :total    => {:type => :float},
                                           :lines    => [:link_list, @line_class]
     end
+
+    def drop_classes
+      DB.drop_class :employee
+      DB.drop_class :customer
+      DB.drop_class :person
+
+      DB.drop_class :invoice_line
+      DB.drop_class :invoice
+      DB.drop_class :product
+    end
+
   end
 
   RSpec.configure do |config|

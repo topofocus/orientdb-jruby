@@ -3,6 +3,9 @@ require File.expand_path("../spec_helper", __FILE__)
 describe "OrientDB" do
 
   describe "DocumentDatabase" do
+    after :all do
+      drop_classes
+    end
 
     before :all do
       create_classes
@@ -51,6 +54,9 @@ describe "OrientDB" do
 
     describe "Query" do
 
+    after :all do
+      drop_classes
+    end
       before :all do
         create_classes
 

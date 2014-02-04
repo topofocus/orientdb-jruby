@@ -6,12 +6,14 @@ describe "OrientDB" do
 
     before do
       @database = OrientDB::GraphDatabase.new("local:#{TEST_DB_PATH}/graph").create
-      @root_node = @database.create_vertex.field("id", 0).save
+      @database = OrientDB::OrientGraph.new("plocal:#{TEST_DB_PATH}/graph")
+      @root_node = @database.add_vertex("V", {name: "nm0"}).save
       #this creates a long chain of nodes... 1000 of 'em that are chained together
       @last_node = @root_node
       1000.times do |i|
-        new_node = @database.create_vertex.field("id", i+1).save
-        @database.create_edge(@last_node, new_node)
+        new_node = @database.add_vertex("V", { name: "nm #{i+1}" }).save
+        puts new_node
+        @database.add_edge(nil, @last_node, new_node, "knows")
         @last_node = new_node
       end
       @database.set_root("graph", @root_node)
@@ -19,7 +21,6 @@ describe "OrientDB" do
 
     after do
       @database.drop
-      @database.close
     end
 
     it "should get the root" do
