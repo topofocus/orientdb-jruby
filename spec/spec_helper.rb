@@ -28,7 +28,7 @@ unless defined?(SPEC_HELPER_LOADED)
     FileUtils.remove_dir "#{TEMP_DIR}/databases/"
     FileUtils.mkdir_p TEST_DB_PATH
     puts ">> TEST_DB PATH : #{TEST_DB_PATH}"
-    DB = OrientDB::DocumentDatabase.new("local:#{TEST_DB_PATH}/test").create
+    DB = OrientDB::DocumentDatabase.new("plocal:#{TEST_DB_PATH}/test").create
   end
 
   module Helpers
@@ -58,13 +58,13 @@ unless defined?(SPEC_HELPER_LOADED)
     end
 
     def drop_classes
-      DB.drop_class :employee
-      DB.drop_class :customer
-      DB.drop_class :person
+      DB.metadata.schema.drop_class :employee
+      DB.metadata.schema.drop_class :customer
+      DB.metadata.schema.drop_class :person
 
-      DB.drop_class :invoice_line
-      DB.drop_class :invoice
-      DB.drop_class :product
+      DB.metadata.schema.drop_class :invoice_line
+      DB.metadata.schema.drop_class :invoice
+      DB.metadata.schema.drop_class :product
     end
 
   end
