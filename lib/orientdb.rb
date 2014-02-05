@@ -8,6 +8,7 @@ $: << OrientDB::GEM_PATH
 $: << File.join(OrientDB::GEM_PATH, 'jars')
 
 require 'java'
+<<<<<<< HEAD
 # require "commons-configuration-1.6"
 # 
 # require "blueprints-core-2.5.0-SNAPSHOT"
@@ -61,6 +62,27 @@ require 'sesame-rio-api-2.6.10.jar'
 require 'sesame-sail-api-2.6.10.jar'
 require 'snappy-0.3.jar'
 
+=======
+require "commons-configuration-1.6"
+
+require "blueprints-core-2.5.0-20140115.140346-27"
+
+require "orient-commons-1.7-SNAPSHOT"
+require "orientdb-core-1.7-SNAPSHOT"
+require "jna-4.0.0"
+require "snappy-0.3"
+require "orientdb-nativeos-1.7-SNAPSHOT"
+require "orientdb-client-1.7-SNAPSHOT"
+require "orientdb-enterprise-1.7-SNAPSHOT"
+require "orientdb-server-1.7-SNAPSHOT"
+require "orientdb-tools-1.7-SNAPSHOT"
+require "orientdb-graphdb-1.7-SNAPSHOT"
+
+require "pipes-2.5.0-20131024.235509-5"
+require "gremlin-java-2.5.0-20140112.160704-7"
+require "gremlin-groovy-2.5.0-20140112.160755-7"
+require 'concurrentlinkedhashmap-lru-1.4'
+>>>>>>> kevin/master
 
 require 'orientdb/version'
 require 'orientdb/ext'
