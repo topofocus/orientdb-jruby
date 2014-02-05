@@ -7,30 +7,33 @@ describe "OrientDB" do
     before do
       @database = OrientDB::GraphDatabase.new("local:#{TEST_DB_PATH}/graph").create
       @database = OrientDB::OrientGraph.new("plocal:#{TEST_DB_PATH}/graph")
-      @root_node = @database.add_vertex("V", {name: "nm0"}).save
+      @root_node = @database.add_vertex("V", {name: "nm0"})
+      @root_node.save
       #this creates a long chain of nodes... 1000 of 'em that are chained together
       @last_node = @root_node
       1000.times do |i|
-        new_node = @database.add_vertex("V", { name: "nm #{i+1}" }).save
-        puts new_node
+        new_node = @database.add_vertex("V", { name: "nm #{i+1}" })
+        new_node.save
         @database.add_edge(nil, @last_node, new_node, "knows")
         @last_node = new_node
       end
-      @database.set_root("graph", @root_node)
     end
 
     after do
       @database.drop
     end
 
-    it "should get the root" do
-      @database.get_root("graph").should == @root_node
-    end
-
     it "should traverse to the last node" do
       node = @root_node
-      while @database.get_out_edges(node) and !@database.get_out_edges(node).empty?
-        node = @database.get_in_vertex(@database.get_out_edges(node).first)
+      @last_node = nil
+      while node
+        nodes = node.get_edges(OrientDB::BLUEPRINTS::Direction::OUT, "knows").to_a
+        if nodes.first 
+          node = nodes.first.get_vertex(OrientDB::BLUEPRINTS::Direction::IN)
+          @last_node = node
+        else
+          break
+        end
       end
       node.should == @last_node
     end
