@@ -3,6 +3,7 @@ require File.expand_path("../spec_helper", __FILE__)
 describe OrientDB do
   describe "Gremlin" do
     before do
+      @database = nil
       begin
         @database = OrientDB::OrientGraph.new(DB)
         @topper = @database.add_vertex(nil)
@@ -12,22 +13,18 @@ describe OrientDB do
         @topper_knows_ben = @database.add_edge(nil, @topper, @ben, "knows")
         @database.stop_transaction(OrientDB::Conclusion::SUCCESS)
       rescue => e
-        @database.stop_transaction(OrientDB::Conclusion::FAILURE)
+        @database.stop_transaction(OrientDB::Conclusion::FAILURE) if @database
         raise e
       end
     end
 
     describe "GremlinPipeline" do
-      subject{OrientDB::Gremlin::GremlinPipeline.new(@database)}
-      describe "#v" do
+      subject { OrientDB::Gremlin::GremlinPipeline.new(@database) }
 
-        it "returns on vertices" do
-          subject.v.count.should == 2 
-        end
-      end
 
       describe "outE" do
         it "returns edges" do
+          puts '***FFFFFF'
           subject.v.outE("knows").first.should be_a(OrientDB::BLUEPRINTS::impls::orient::OrientEdge)    
         end
       end

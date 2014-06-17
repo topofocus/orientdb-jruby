@@ -11,10 +11,7 @@ tmtags
 .\#*
 
 ## VIM
-*.swp
-*.swo
-*.swn
-*.swm
+*.sw*
 
 ## IDEA
 .idea/*
