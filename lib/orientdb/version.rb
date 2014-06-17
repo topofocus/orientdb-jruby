@@ -1,3 +1,3 @@
 module OrientDB
-  VERSION = '1.7.rc1'
+  VERSION = '1.7.3'
 end
