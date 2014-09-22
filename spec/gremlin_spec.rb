@@ -5,7 +5,8 @@ describe OrientDB do
     before do
       @database = nil
       begin
-        @database = OrientDB::OrientGraph.new(DB)
+
+        @database = OrientDB::OrientGraph.new("plocal:#{TEST_DB_PATH}")
         @topper = @database.add_vertex(nil)
         @topper.set_property("name", "Topper")
         @ben = @database.add_vertex(nil)
@@ -24,8 +25,7 @@ describe OrientDB do
 
       describe "outE" do
         it "returns edges" do
-          puts '***FFFFFF'
-          subject.v.outE("knows").first.should be_a(OrientDB::BLUEPRINTS::impls::orient::OrientEdge)    
+          subject.v.outE("knows").first.should be_a(OrientDB::BLUEPRINTS::impls::orient::OrientEdge)
         end
       end
     end
