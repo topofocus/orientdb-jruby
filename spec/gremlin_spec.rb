@@ -24,7 +24,6 @@ describe OrientDB do
 
       describe "outE" do
         it "returns edges" do
-          puts '***FFFFFF'
           subject.v.outE("knows").first.should be_a(OrientDB::BLUEPRINTS::impls::orient::OrientEdge)    
         end
       end
