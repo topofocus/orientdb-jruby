@@ -6,7 +6,7 @@
 
 Gem::Specification.new do |s|
   s.name = "orientdb"
-  s.version = "1.7.8"
+  s.version = "2.0.3"
   s.platform = "java"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
@@ -39,15 +39,16 @@ Gem::Specification.new do |s|
     "lib/jars/javassist-3.16.1-GA.jar",
     "lib/jars/jna-4.0.0.jar",
     "lib/jars/jna-platform-4.0.0.jar",
-    "lib/jars/orient-commons-2.0-M1.jar",
-    "lib/jars/orientdb-client-2.0-M1.jar",
-    "lib/jars/orientdb-core-2.0-M1.jar",
-    "lib/jars/orientdb-distributed-2.0-M1.jar",
-    "lib/jars/orientdb-enterprise-2.0-M1.jar",
-    "lib/jars/orientdb-graphdb-2.0-M1.jar",
-    "lib/jars/orientdb-nativeos-2.0-M1.jar",
-    "lib/jars/orientdb-object-2.0-M1.jar",
-    "lib/jars/orientdb-server-2.0-M1.jar",
+    "lib/jars/orientdb-client-2.0.3.jar",
+    "lib/jars/orientdb-core-2.0.3.jar",
+    "lib/jars/orientdb-distributed-2.0.3.jar",
+    "lib/jars/orientdb-enterprise-2.0.3.jar",
+    "lib/jars/orientdb-etl-2.0.3.jar",
+    "lib/jars/orientdb-graphdb-2.0.3.jar",
+    "lib/jars/orientdb-jdbc-2.0.3.jar",
+    "lib/jars/orientdb-object-2.0.3.jar",
+    "lib/jars/orientdb-server-2.0.3.jar",
+    "lib/jars/orientdb-tools-2.0.3.jar",
     "lib/jars/pipes-2.6.0.jar",
     "lib/jars/snappy-java-1.1.0.1.jar",
     "lib/orientdb.rb",
