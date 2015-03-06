@@ -72,7 +72,7 @@ unless defined?(SPEC_HELPER_LOADED)
   RSpec.configure do |config|
     include Helpers
 
-    config.color_enabled = true
+    config.color = true
   end
 
   SPEC_HELPER_LOADED = true

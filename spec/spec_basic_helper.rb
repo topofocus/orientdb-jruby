@@ -14,7 +14,7 @@ unless defined?(SPEC_BASIC_HELPER_LOADED)
   require 'fileutils'
 
   RSpec.configure do |config|
-    config.color_enabled = true
+    config.color = true
   end
 
   class Developer

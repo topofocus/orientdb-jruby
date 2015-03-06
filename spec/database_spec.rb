@@ -47,9 +47,9 @@ describe "OrientDB" do
 
       number_prop = @invoice_class.get_property("number")
       number_prop.type.to_s.should == "INTEGER"
-      number_prop.indexed.should be_true
-      number_prop.mandatory.should be_true
-      number_prop.not_null.should be_false
+      number_prop.indexed.should == true
+      number_prop.mandatory.should == true
+      number_prop.not_null.should == false
     end
 
     describe "Query" do
