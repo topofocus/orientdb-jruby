@@ -5,7 +5,7 @@ describe "OrientDB" do
   describe "Graph Database" do
 
     before do
-      @database = OrientDB::GraphDatabase.new("local:#{TEST_DB_PATH}/graph").create
+      @database = OrientDB::GraphDatabase.new("plocal:#{TEST_DB_PATH}/graph").create
       @database = OrientDB::OrientGraph.new("plocal:#{TEST_DB_PATH}/graph")
       @root_node = @database.add_vertex("V", {name: "nm0"})
       @root_node.save
