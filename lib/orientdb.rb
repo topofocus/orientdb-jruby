@@ -7,32 +7,32 @@ end
 $: << OrientDB::GEM_PATH
 $: << File.join(OrientDB::GEM_PATH, 'jars')
 
+OrientDB_Version = '2.0.13'
+TinkerPop_Version = '2.6.0'
+JNA_Version = '4.0.0'
+ConcurrentLinkedHashMap_Version = '1.4.1'
+Groovy_Version = '1.8.9'
+CommonsConfiguration_Version = '1.6'
+
 require 'java'
 
-require 'antlr-2.7.7.jar'
-require 'asm-3.2.jar'
-require 'blueprints-core-2.5.0.jar'
-require 'commons-configuration-1.6.jar'
-require 'concurrentlinkedhashmap-lru-1.4.jar'
-require 'gremlin-groovy-2.5.0.jar'
-require 'gremlin-java-2.5.0.jar'
-require 'groovy-1.8.9.jar'
-require 'jansi-1.5.jar'
-require 'javassist-3.16.1-GA.jar'
-require 'jna-4.0.0.jar'
-require 'jna-platform-4.0.0.jar'
-require 'orient-commons-1.7.8.jar'
-require 'orientdb-client-1.7.8.jar'
-require 'orientdb-core-1.7.8.jar'
-require 'orientdb-distributed-1.7.8.jar'
-require 'orientdb-enterprise-1.7.8.jar'
-require 'orientdb-graphdb-1.7.8.jar'
-require 'orientdb-nativeos-1.7.8.jar'
-require 'orientdb-object-1.7.8.jar'
-require 'orientdb-server-1.7.8.jar'
-require 'pipes-2.5.0.jar'
-require 'snappy-java-1.1.0.1.jar'
+require "orientdb-core-#{ OrientDB_Version }.jar"
+require "orientdb-object-#{ OrientDB_Version }.jar"
+require "blueprints-core-#{ TinkerPop_Version }.jar"
+require "orientdb-graphdb-#{ OrientDB_Version }.jar"
 
+require "jna-#{ JNA_Version }.jar"
+require "jna-platform-#{ JNA_Version }.jar"
+require "concurrentlinkedhashmap-lru-#{ ConcurrentLinkedHashMap_Version }.jar"
+
+require "orientdb-client-#{ OrientDB_Version }.jar"
+require "orientdb-enterprise-#{ OrientDB_Version }.jar"
+
+require "pipes-#{ TinkerPop_Version }.jar"
+require "gremlin-java-#{ TinkerPop_Version }.jar"
+require "gremlin-groovy-#{ TinkerPop_Version }.jar"
+require "groovy-#{ Groovy_Version }.jar"
+require "commons-configuration-#{ CommonsConfiguration_Version }.jar"
 
 require 'orientdb/version'
 require 'orientdb/ext'
