@@ -7,7 +7,7 @@ end
 $: << OrientDB::GEM_PATH
 $: << File.join(OrientDB::GEM_PATH, 'jars')
 
-OrientDB_Version = '2.1.1'
+OrientDB_Version = '2.1.2'
 TinkerPop_Version = '2.6.0'
 JNA_Version = '4.0.0'
 ConcurrentLinkedHashMap_Version = '1.4.1'
