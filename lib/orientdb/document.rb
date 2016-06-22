@@ -3,7 +3,7 @@ module OrientDB
   class Document
 
     def values
-      field_names.map { |field_name| [field_name, self[field_name]] }
+    Hash[  field_names.map { |field_name| [field_name, self[field_name]] } ]
     end
 
     alias :db :database
