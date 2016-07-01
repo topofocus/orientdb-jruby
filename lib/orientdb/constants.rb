@@ -8,6 +8,8 @@ module OrientDB
   DocumentDatabasePooled = CORE.db.document.ODatabaseDocumentTxPooled
   GraphDatabase          = CORE.db.document.ODatabaseDocumentTx # = CORE.db.graph.OGraphDatabase
   OTraverse              = CORE.command.traverse.OTraverse
+  RidBag		 = CORE.db.record.ridbag.ORidBag
+#    db.record.Ridbag::ORidbag
   Document               = CORE.record.impl.ODocument
   IndexType              = CORE.metadata.schema.OClass::INDEX_TYPE
   OClassImpl             = CORE.metadata.schema.OClassImpl
@@ -21,6 +23,8 @@ module OrientDB
   SQLSynchQuery          = CORE.sql.query.OSQLSynchQuery
   User                   = CORE.metadata.security.OUser
   RemoteStorage          = CLIENT.remote.OStorageRemote
+  ServerAdmin	         = CLIENT.remote.OServerAdmin
+  JavaDate		 = Java::JavaUtil::Date
 
   #Blueprints
   BLUEPRINTS = com.tinkerpop.blueprints
@@ -38,7 +42,8 @@ module OrientDB
     :bool          => "BOOLEAN",
     :double        => "BYTE",
     :datetime      => "DATE",
-    :decimal       => "FLOAT",
+    :float         => "FLOAT",
+    :decimal       => "DECIMAL",
     :embedded_list => "EMBEDDEDLIST",
     :list          => "EMBEDDEDLIST",
     :embedded_map  => "EMBEDDEDMAP",
@@ -46,6 +51,7 @@ module OrientDB
     :embedded_set  => "EMBEDDEDSET",
     :set           => "EMBEDDEDSET",
     :int           => "INTEGER",
+    :integer       => "INTEGER",
     :link_list     => "LINKLIST",
     :link_map      => "LINKMAP",
     :link_set      => "LINKSET",

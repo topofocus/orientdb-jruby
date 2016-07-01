@@ -5,7 +5,9 @@ module OrientDB
     def type_for(value)
       self.class.type_for value, schema
     end
-
+=begin
+field_types are declared in constants.rb
+=end
     def add(property_name, type, options = { })
       property_name = property_name.to_s
       if exists_property(property_name)
@@ -14,18 +16,21 @@ module OrientDB
       end
 
       type = type.oclass if type.respond_to?(:oclass)
-      case type
+      prop = case type
         when SchemaType
-          prop = create_property property_name, type
+         create_property property_name, type
         when Symbol
-          prop = create_property property_name, type_for(type)
+          create_property property_name, type_for(type)
         when OClassImpl
-          prop = create_property property_name, type_for(:link), type
+          create_property property_name, type_for(:link), type
         when Array
+	  puts "OclassImp#ADD: Array: #{type_for(type.first)}, #{type_for(type.last)}"
+
           type, sub_type = type_for(type.first), type_for(type.last)
-          prop = create_property property_name, type, sub_type
+          create_property property_name, type, sub_type
         else
           raise "ERROR! Unknown type [ #{property_name} | #{type} : #{type.class.name} ]"
+	  nil # return_value
       end
 
       prop.set_min options[:min].to_s unless options[:min].nil?
@@ -40,14 +45,33 @@ module OrientDB
       self
     end
 
-    def add_index
+#    def add_index
 
-    end
+ #   end
 
     def [](property_name)
       property_name = property_name.to_s
       exists_property(property_name) ? get_property(property_name) : nil
     end
+
+    # returns something like
+    # => {:properties=>[
+    #	      {"name"=>"details", "type"=>"LINK", "mandatory"=>"false", "readonly"=>"false", "notNull"=>"false", "min"=>"", "max"=>"", "regexp"=>"", "collate"=>"{ODefaultCollate : name = default}", "defaultValue"=>""}, 
+    #	      {"name"=>"con_id", "type"=>"INTEGER", "mandatory"=>"false", "readonly"=>"false", "notNull"=>"false", "min"=>"", "max"=>"", "regexp"=>"", "collate"=>"{ODefaultCollate : name = default}", "defaultValue"=>""}
+    #	       ] 
+    #	       } 
+    #
+    def propertiesMap
+      schablone =  ["name", "type", "mandatory", "readonly", "notNull", 
+		    "min", "max", "regexp", "collate", "defaultValue" ]
+  {  properties: properties.map do | x | 
+		Hash[  schablone.map{| s | [ s , x.send(s).to_s ] } ] 
+      end  
+  }
+      
+    end
+
+#    alias inspect_property []
 
     def db
       document.database
@@ -89,7 +113,7 @@ module OrientDB
         type
       end
 
-      def create(db, name, fields = { })
+      def create(db, name, superClass: nil, **fields  )
         name        = name.to_s
         add_cluster = fields.delete :add_cluster
         add_cluster = true if add_cluster.nil?
@@ -109,8 +133,7 @@ module OrientDB
           end
         end
 
-        super_klass = fields.delete :super
-        super_klass = db.get_class(super_klass.to_s) unless super_klass.is_a?(OrientDB::OClassImpl)
+        super_klass = db.get_class(superClass.to_s) unless superClass.is_a?(OrientDB::OClassImpl)
         klass.set_super_class super_klass if super_klass
         db.schema.save
 

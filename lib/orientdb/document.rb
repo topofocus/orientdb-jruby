@@ -28,6 +28,10 @@ module OrientDB
       super
     end
 
+    def from_orient
+       ActiveOrient::Model.autoload_object rid
+    end
+
     def method_missing(method_name, *args, &blk)
       return self[method_name] if field?(method_name)
 
@@ -48,30 +52,31 @@ module OrientDB
 
     def inspect
       props = values.map { |k, v| "#{k}:#{v.inspect}" }.join(' ')
-      %{#<OrientDB::Document:#{class_name}:#{rid}#{props.empty? ? '' : ' ' + props}>}
+      %{<OrientDB::Document:#{class_name}:#{rid}#{props.empty? ? '' : ' ' + props}>}
     end
 
     alias :to_s :inspect
 
-    class << self
-
-      alias_method :native_new, :new
-
-      def new(db, klass_name, fields = {})
-        obj = native_new klass_name.to_s
-        fields.each do |name, value|
-          obj.field name.to_s, value
-        end
-        obj
-      end
-
-      def create(db, klass_name, fields = {})
-        obj = new db, klass_name, fields
-        obj.save
-        obj
-      end
-
-    end
+#    class << self
+#
+#      alias_method :native_new, :new
+#
+#      def new(db, klass_name, fields = {})
+#	puts "NEW: #{klass_name}, #{fields.inspect}"
+#        obj = native_new klass_name.to_s
+#        fields.each do |name, value|
+#          obj.field name.to_s, value
+#        end
+#        obj
+#      end
+#
+#      def create(db, klass_name, fields = {})
+#        obj = new db, klass_name, fields
+#        obj.save
+#        obj
+#      end
+#
+#    end
 
   end
 

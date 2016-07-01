@@ -21,6 +21,10 @@ module OrientDB
       end
     end
 
+    def custom q
+      query OrientDB::SQLSynchQuery.new( q.to_s )
+    end
+
     def all(sql_query = nil)
       sql_query = prepare_sql_query sql_query
       query sql_query
@@ -28,6 +32,7 @@ module OrientDB
 
     def first(sql_query = nil)
       sql_query = prepare_sql_query(sql_query).setLimit(1)
+      puts "SQL_QWUERY:: "+sql_query
       query(sql_query).first
     end
 
