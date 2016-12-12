@@ -7,7 +7,7 @@ end
 $: << OrientDB::GEM_PATH
 $: << File.join(OrientDB::GEM_PATH, 'jars')
 
-OrientDB_Version = '2.0.13'
+OrientDB_Version = '2.2.13'
 TinkerPop_Version = '2.6.0'
 JNA_Version = '4.0.0'
 ConcurrentLinkedHashMap_Version = '1.4.1'
@@ -26,7 +26,6 @@ require "jna-platform-#{ JNA_Version }.jar"
 require "concurrentlinkedhashmap-lru-#{ ConcurrentLinkedHashMap_Version }.jar"
 
 require "orientdb-client-#{ OrientDB_Version }.jar"
-require "orientdb-enterprise-#{ OrientDB_Version }.jar"
 
 require "pipes-#{ TinkerPop_Version }.jar"
 require "gremlin-java-#{ TinkerPop_Version }.jar"
