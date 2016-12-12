@@ -7,7 +7,7 @@
 
 Gem::Specification.new do |s|
   s.name = "orientdb"
-  s.version = "2.2.13"
+  s.version = "2.2.13.1"
   s.platform = "java"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
