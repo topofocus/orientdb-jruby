@@ -1,4 +1,4 @@
-raise "OrieentDB-client only runs on JRuby. Sorry!" unless (RUBY_PLATFORM =~ /java/)
+raise "OrientDB-client only runs on JRuby" unless (RUBY_PLATFORM =~ /java/)
 
 module OrientDB
   GEM_PATH = File.dirname File.expand_path(__FILE__) unless const_defined?(:GEM_PATH)
