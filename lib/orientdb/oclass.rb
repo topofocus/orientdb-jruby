@@ -92,7 +92,7 @@ module OrientDB
       def create(db, name, fields = { })
         name        = name.to_s
         add_cluster = fields.delete :add_cluster
-        add_cluster = true if add_cluster.nil?
+        add_cluster = false if add_cluster.nil?
         use_cluster = fields.delete :use_cluster
 
         if db.schema.exists_class? name
