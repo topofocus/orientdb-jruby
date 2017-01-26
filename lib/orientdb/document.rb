@@ -3,20 +3,31 @@ module OrientDB
   class Document
 
     def values
-      field_names.map { |field_name| [field_name, self[field_name]] }
+      puts "<<<1 in >>>"
+      field_names.map { |field_name|
+        # puts "<<<1 #{field_name} >>>"
+        # if field_name == "rid"
+        #   # puts ">>> 1 rid: #{field field_name} "
+        #   next
+        # end
+        [field_name, self[field_name]]
+      }
     end
 
     alias :db :database
 
     def [](field_name)
+      puts "<<<2 field_name: #{field_name} <-> #{field field_name.to_s}>>>"
       field field_name.to_s
     end
 
     def []=(field_name, value)
+      puts "<<<3 field_name: #{field_name} <-> value: #{value.to_s} >>>"
       field field_name.to_s, value
     end
 
     def field?(name)
+      puts "<<<4 #{contains_field(name.to_s)} >>>"
       contains_field(name.to_s) || (schema_class && schema_class.exists_property?(name.to_s))
     end
 
@@ -47,8 +58,11 @@ module OrientDB
     end
 
     def inspect
-      props = values.map { |k, v| "#{k}:#{v.inspect}" }.join(' ')
-      %{#<OrientDB::Document:#{class_name}:#{rid}#{props.empty? ? '' : ' ' + props}>}
+      puts "<<<5 inspect in >>>"
+      props = values.map { |k, v| "#{k}:#{v}" }.join(' ')
+      puts "<<<6 #{props} >>>"
+      props
+      # %{#<OrientDB::Document:#{class_name}:#{rid}#{props.empty? ? '' : ' ' + props}>}
     end
 
     alias :to_s :inspect
